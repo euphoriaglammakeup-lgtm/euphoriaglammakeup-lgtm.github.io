@@ -2,52 +2,43 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // components
-
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
-import { right } from "@popperjs/core";
+
+import HeroVideo from "./HeroVideo.js";
+import MediaCarousel from "./MediaCarousel.js";
 
 export default function Landing() {
   return (
     <>
       {/* <Navbar transparent /> */}
       <main>
+        {/* ===== HERO ===== */}
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-          <div
-            className="absolute top-0 w-full h-full bg-center bg-cover"
-            style={{
-              backgroundImage: `url(${require("assets/img/landing1.jpeg")})`,
-            }}
-          >
-            {/* <span
-              id="blackOverlay"
-              className="w-full h-full absolute opacity-50 bg-black"
-            ></span> */}
-          </div>
+          {/* Autoplaying hero video with poster fallback */}
+          <HeroVideo
+            src={require("assets/img2/v1.mp4")}
+            poster={require("assets/img/landing1.jpeg")}
+            overlay={true}
+          />
+
           <div className="container relative mx-auto">
-           
             <div className="items-center flex flex-wrap">
-                
-              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center" >
-               
+              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <div className="flex items-center justify-center gap-4">
-                   
                     <h1 className="text-white font-semibold text-5xl m-0">
                       Euphoria Glam Makeup Studio and Academy
                     </h1>
-                   
                   </div>
                   <p className="mt-4 text-lg text-blueGray-200">
                     Unleash your inner beauty with our expert touch. Where every face is a masterpiece and every client leaves glowing. Discover the art of transformation with Euphoria Glam!
                   </p>
                 </div>
-               
               </div>
-              
-               
             </div>
           </div>
+
           <div
             className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
             style={{ transform: "translateZ(0)" }}
@@ -69,6 +60,7 @@ export default function Landing() {
           </div>
         </div>
 
+        {/* ===== FEATURE CARDS ===== */}
         <section className="pb-20 bg-blueGray-200 -mt-24">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap">
@@ -78,11 +70,10 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
                     </div>
-                     <h6 className="text-xl font-semibold">Luxury Beauty Services</h6>
+                    <h6 className="text-xl font-semibold">Luxury Beauty Services</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
                       From HD makeup to hair styling, we offer a full suite of luxury beauty services. Experience the magic of Euphoria Glam and let your beauty bloom!
                     </p>
-                   
                   </div>
                 </div>
               </div>
@@ -93,7 +84,7 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                       <i className="fas fa-retweet"></i>
                     </div>
-                     <h6 className="text-xl font-semibold">Bridal & Party Makeovers</h6>
+                    <h6 className="text-xl font-semibold">Bridal & Party Makeovers</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
                       Step into the spotlight with flawless looks for every occasion. Our signature makeovers ensure you shine bright on your big day and every celebration!
                     </p>
@@ -107,7 +98,7 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
                       <i className="fas fa-fingerprint"></i>
                     </div>
-                   <h6 className="text-xl font-semibold">Professional Courses</h6>
+                    <h6 className="text-xl font-semibold">Professional Courses</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
                       Dreaming of a career in beauty? Join our academy and master the latest makeup techniques from industry experts. Your glam journey starts here!
                     </p>
@@ -116,6 +107,7 @@ export default function Landing() {
               </div>
             </div>
 
+            {/* ===== “Experience the Euphoria Difference” ===== */}
             <div className="flex flex-wrap items-center mt-32">
               <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
                 <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
@@ -167,6 +159,46 @@ export default function Landing() {
           </div>
         </section>
 
+        {/* ===== OUR WORK CAROUSEL ===== */}
+        <section className="bg-blueGray-200">
+          <div className="container mx-auto px-4 py-16">
+            <h3 className="text-3xl font-semibold text-center mb-8">Our Work</h3>
+            <MediaCarousel
+              className="max-w-5xl mx-auto"
+              intervalMs={3500}
+              items={Array.from({ length: 5 }, (_, i) => i).map(i =>  { return { type: "image", src: require(`assets/img2/${i+1}.jpeg`), alt: "Bridal glam" }})}
+              // items={[
+              //   { type: "image", src: require("assets/img2/1.jpeg"), alt: "Bridal glam" },
+              //   { type: "image", src: require("assets/img2/2.jpeg"), alt: "Party makeover" },
+              //   //{ type: "video", src: require("assets/img2/v2.mp4"), poster: require("assets/img2/v1i.jpeg") },
+              //   { type: "image", src: require("assets/img2/3.jpeg"), alt: "Editorial look" },
+              //   //{ type: "video", src: require("assets/img2/v2.mp4"), poster: require("assets/img2/v2i.jpeg") },
+              // ]}
+            />
+          </div>
+        </section>
+
+        {/* ===== REELS STRIP ===== */}
+        <section className="bg-blueGray-200">
+          <div className="container mx-auto px-4 pb-12">
+            <h4 className="text-2xl font-semibold text-center mb-6">Reels</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[require("assets/img2/v2.mp4")].map((v, i) => (
+                <video
+                  key={i}
+                  className="w-full h-64 object-cover rounded-2xl shadow"
+                  src={v}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== WHY CHOOSE SECTION ===== */}
         <section className="relative py-20">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
@@ -256,6 +288,7 @@ export default function Landing() {
           </div>
         </section>
 
+        {/* ===== TEAM ===== */}
         <section className="pt-20 pb-48">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center text-center mb-24">
@@ -280,28 +313,20 @@ export default function Landing() {
                       Bridal Specialist
                     </p>
                     <div className="mt-6">
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-twitter"></i>
                       </button>
-                      <button
-                        className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-facebook-f"></i>
                       </button>
-                      <button
-                        className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-dribbble"></i>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div className="w-full md:w-6/12 lg:w-4/12 lg:mb-0 mb-12 px-4">
                 <div className="px-6">
                   <img
@@ -315,57 +340,17 @@ export default function Landing() {
                       Makeup Educator
                     </p>
                     <div className="mt-6">
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-google"></i>
                       </button>
-                      <button
-                        className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-facebook-f"></i>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src={require("assets/img/team-3-800x800.jpg").default}
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold"></h5>
-                    <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Hair & Beauty Expert
-                    </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-google"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-twitter"></i>
-                      </button>
-                      <button
-                        className="bg-blueGray-700 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-instagram"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+
               <div className="w-full md:w-6/12 lg:w-4/12 lg:mb-0 mb-12 px-4">
                 <div className="px-6">
                   <img
@@ -379,38 +364,28 @@ export default function Landing() {
                       Founder & Creative Director
                     </p>
                     <div className="mt-6">
-                      <button
-                        className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-dribbble"></i>
                       </button>
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-google"></i>
                       </button>
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-twitter"></i>
                       </button>
-                      <button
-                        className="bg-blueGray-700 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
+                      <button className="bg-blueGray-700 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
                         <i className="fab fa-instagram"></i>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
 
+        {/* ===== DARK CTA ===== */}
         <section className="pb-20 relative block bg-blueGray-800">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
@@ -425,10 +400,7 @@ export default function Landing() {
               x="0"
               y="0"
             >
-              <polygon
-                className="text-blueGray-800 fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
+              <polygon className="text-blueGray-800 fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
           </div>
 
@@ -480,6 +452,8 @@ export default function Landing() {
             </div>
           </div>
         </section>
+
+        {/* ===== CONTACT ===== */}
         <section className="relative block py-24 lg:pt-0 bg-blueGray-800">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
@@ -493,10 +467,7 @@ export default function Landing() {
                       Fill out the form below and our team will reach out to make your beauty dreams come true!
                     </p>
                     <div className="relative w-full mb-3 mt-8">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="full-name"
-                      >
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="full-name">
                         Full Name
                       </label>
                       <input
@@ -507,10 +478,7 @@ export default function Landing() {
                     </div>
 
                     <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="email"
-                      >
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="email">
                         Email
                       </label>
                       <input
@@ -521,10 +489,7 @@ export default function Landing() {
                     </div>
 
                     <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="message"
-                      >
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="message">
                         Message
                       </label>
                       <textarea
@@ -549,6 +514,8 @@ export default function Landing() {
           </div>
         </section>
       </main>
+
+      {/* <Footer /> */}
     </>
   );
 }

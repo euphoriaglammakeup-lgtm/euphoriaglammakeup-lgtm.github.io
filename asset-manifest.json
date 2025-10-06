@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.146e44e6.css",
-    "main.js": "/static/js/main.2d8b0307.js",
+    "main.js": "/static/js/main.35248b39.js",
     "static/media/v1.mp4": "/static/media/v1.9b2779aa99077751b726.mp4",
     "static/media/v2.mp4": "/static/media/v2.db3a274aed4db48c5bad.mp4",
     "static/media/t2.jpeg": "/static/media/t2.596d1a5ce6eb0b5db0ed.jpeg",
@@ -54,7 +54,6 @@
     "static/media/WhatsApp Image 2025-09-26 at 8.22.35 PM (1).jpeg": "/static/media/WhatsApp Image 2025-09-26 at 8.22.35 PM (1).112b01f5cc6a422c4d2d.jpeg",
     "static/media/WhatsApp Image 2025-09-26 at 8.26.45 PM.jpeg": "/static/media/WhatsApp Image 2025-09-26 at 8.26.45 PM.c724b6b8dd27e3125e49.jpeg",
     "static/media/20.jpeg": "/static/media/20.c8d18b028a70d025ce8f.jpeg",
-    "static/media/t5.jpeg": "/static/media/t5.85398511c6ff9f3d8e5a.jpeg",
     "static/media/component-profile-card.png": "/static/media/component-profile-card.52a3ee76a70356d2e910.png",
     "static/media/WhatsApp Image 2025-09-26 at 8.22.34 PM (1).jpeg": "/static/media/WhatsApp Image 2025-09-26 at 8.22.34 PM (1).a81f2bfaa335ab4e312e.jpeg",
     "static/media/WhatsApp Image 2025-09-26 at 8.22.36 PM.jpeg": "/static/media/WhatsApp Image 2025-09-26 at 8.22.36 PM.1afa7bbcfd71d206e37f.jpeg",
@@ -105,10 +104,10 @@
     "static/media/github.svg": "/static/media/github.6c95555646a0ecabf549179c97bf0e7d.svg",
     "index.html": "/index.html",
     "main.146e44e6.css.map": "/static/css/main.146e44e6.css.map",
-    "main.2d8b0307.js.map": "/static/js/main.2d8b0307.js.map"
+    "main.35248b39.js.map": "/static/js/main.35248b39.js.map"
   },
   "entrypoints": [
     "static/css/main.146e44e6.css",
-    "static/js/main.2d8b0307.js"
+    "static/js/main.35248b39.js"
   ]
 }
